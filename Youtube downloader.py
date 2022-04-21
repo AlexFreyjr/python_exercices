@@ -1,3 +1,6 @@
+#needs debugging
+from pytube import Youtube
+import wget
 """
 pseudo code:
 
@@ -14,3 +17,10 @@ launch scrapping
 clean scrap
 send a message to the user with a local link for the video
 """
+
+link = input("Entrer le lien de la vidéo a telecharger")
+try: 
+    video = Youtube(link)
+    wget.download(Youtube(link))
+except pytube.exceptions.PytubeError:
+    print(f"Video {video.title} unavaialable.")
